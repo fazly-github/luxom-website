@@ -6,639 +6,404 @@
 <title>Luxom Auto Detailing — McKinney TX | Mobile Detailing DFW</title>
 <meta name="description" content="Premium mobile auto detailing in McKinney, TX. Serving Frisco, Plano, Allen, Richardson, Lewisville & all DFW. Book your detail today — we come to you.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   DESIGN TOKENS — Modern Calm Palette
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root{
   --ink:#1a1a18;
   --ink2:#2d2d2a;
-  --stone:#4a4a45;
-  --muted:#8a8a82;
-  --line:#e2e0d8;
-  --off:#f5f3ee;
+  --stone:#5a5a55;
+  --muted:#9a9a92;
+  --line:#e4e2da;
+  --off:#f6f4ef;
   --cream:#faf8f3;
-  --white:#ffffff;
-  --sage:#7a9e8a;
-  --sage2:#5d8a73;
+  --white:#fff;
+  --sage:#5d8a73;
   --sage-light:#e8f0eb;
   --gold:#c9963a;
-  --gold-light:#f5e8d0;
-  --card:#ffffff;
-  --r:10px;
-  --r2:18px;
-  --r3:28px;
-  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --r:12px;
+  --r2:20px;
+  --ease:cubic-bezier(.4,0,.2,1);
 }
-
-/* ━━━━ RESET ━━━━ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 button{font-family:'DM Sans',sans-serif;cursor:pointer}
 
-/* ━━━━ CURSOR (desktop only) ━━━━ */
+/* ── CURSOR desktop ── */
 @media(min-width:961px){
-  body{cursor:none}
-  body *{cursor:none}
-  #dot{position:fixed;z-index:99999;pointer-events:none;width:8px;height:8px;border-radius:50%;background:var(--sage2);transform:translate(-50%,-50%);transition:width .15s,height .15s}
-  #ring{position:fixed;z-index:99998;pointer-events:none;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(93,138,115,.35);transform:translate(-50%,-50%);transition:left .09s ease,top .09s ease}
+  body,body *{cursor:none}
+  #dot{position:fixed;z-index:9999;pointer-events:none;width:8px;height:8px;border-radius:50%;background:var(--sage);transform:translate(-50%,-50%);transition:width .15s,height .15s}
+  #ring{position:fixed;z-index:9998;pointer-events:none;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(93,138,115,.3);transform:translate(-50%,-50%)}
 }
 @media(max-width:960px){#dot,#ring{display:none}}
 
-/* ━━━━ TOP BAR ━━━━ */
-.topbar{background:var(--ink);padding:10px 20px;text-align:center}
-.topbar p{font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.3px;line-height:1.5}
+/* ── TOP BAR ── */
+.topbar{background:var(--ink);padding:9px 20px;text-align:center}
+.topbar p{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.3px}
 .topbar strong{color:var(--sage);font-weight:500}
 
-/* ━━━━ NAV ━━━━ */
-header{position:sticky;top:0;z-index:500;background:rgba(250,248,243,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-nav{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.nav-logo-mark{width:38px;height:38px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center}
-.nav-logo-mark span{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:1px}
-.nav-logo-text{display:flex;flex-direction:column;line-height:1}
-.nav-logo-text .name{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.5px}
-.nav-logo-text .sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}
-.nav-links{display:flex;gap:2px;align-items:center}
-.nav-links a{font-size:13px;font-weight:500;color:var(--stone);text-decoration:none;padding:7px 14px;border-radius:8px;transition:var(--transition);white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--ink);background:var(--off)}
-.nav-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
-.btn-ghost{font-size:13px;font-weight:600;background:transparent;border:1.5px solid var(--line);color:var(--stone);padding:9px 18px;border-radius:40px;transition:var(--transition);white-space:nowrap}
-.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
-.btn-fill{font-size:13px;font-weight:600;background:var(--ink);border:none;color:var(--cream);padding:10px 22px;border-radius:40px;transition:var(--transition);white-space:nowrap}
-.btn-fill:hover{background:var(--ink2);transform:translateY(-1px)}
-.nav-ham{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:6px;z-index:10}
-.nav-ham span{width:22px;height:1.5px;background:var(--ink);border-radius:2px;display:block;transition:var(--transition)}
+/* ── NAV ── */
+header{position:sticky;top:0;z-index:500;background:rgba(250,248,243,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+nav{max-width:1140px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:36px;height:36px;background:var(--ink);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark span{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:1px}
+.logo-text .name{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.3px;display:block}
+.logo-text .sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-top:1px}
+.nav-links{display:flex;gap:2px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--stone);text-decoration:none;padding:7px 13px;border-radius:8px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--ink);background:var(--off)}
+.nav-cta{flex-shrink:0}
+.btn-nav{font-size:13px;font-weight:600;background:var(--ink);color:var(--cream);border:none;padding:10px 22px;border-radius:40px;transition:all .25s var(--ease)}
+.btn-nav:hover{background:var(--ink2);transform:translateY(-1px)}
+.ham{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:4px}
+.ham span{width:20px;height:1.5px;background:var(--ink);border-radius:2px;display:block;transition:all .25s}
 
-/* Mobile Nav Menu */
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:450;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:40px 24px}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 0;opacity:0;animation:fadeUp .4s forwards}
-.mobile-menu a:nth-child(1){animation-delay:.05s}
-.mobile-menu a:nth-child(2){animation-delay:.1s}
-.mobile-menu a:nth-child(3){animation-delay:.15s}
-.mobile-menu a:nth-child(4){animation-delay:.2s}
-.mobile-menu a:nth-child(5){animation-delay:.25s}
-.mobile-menu a:nth-child(6){animation-delay:.3s}
-.mobile-menu-cta{margin-top:24px;background:var(--ink);color:var(--cream)!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:600!important;padding:14px 40px!important;border-radius:40px;opacity:0;animation:fadeUp .4s .35s forwards!important}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* Mobile overlay */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:490;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:40px 24px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:500;color:var(--ink);text-decoration:none;padding:6px 0;opacity:0;animation:fu .38s forwards}
+.mob-menu a:nth-child(1){animation-delay:.04s}.mob-menu a:nth-child(2){animation-delay:.09s}
+.mob-menu a:nth-child(3){animation-delay:.14s}.mob-menu a:nth-child(4){animation-delay:.19s}
+.mob-menu a:nth-child(5){animation-delay:.24s}
+.mob-cta{margin-top:20px;background:var(--ink);color:var(--cream)!important;font-family:'DM Sans',sans-serif!important;font-size:14px!important;font-weight:600!important;padding:13px 38px!important;border-radius:40px;opacity:0;animation:fu .38s .28s forwards!important}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-/* ━━━━ HERO ━━━━ */
-.hero{position:relative;min-height:95vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 24px 80px}
-.hero-bg{position:absolute;inset:0;z-index:0}
+/* ── HERO ── */
+.hero{position:relative;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:96px 24px 72px}
+.hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,24,.72) 0%,rgba(26,26,24,.5) 55%,rgba(26,26,24,.8) 100%)}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:8px 20px;margin-bottom:28px;position:relative;z-index:2}
-.hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 2.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
-.hero-pill span{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8)}
-.hero-content{position:relative;z-index:2;max-width:760px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,110px);font-weight:500;line-height:.9;color:#fff;margin-bottom:28px;letter-spacing:-1px}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,24,.74) 0%,rgba(26,26,24,.52) 55%,rgba(26,26,24,.82) 100%)}
+.hero-pill{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16);border-radius:40px;padding:7px 20px;margin-bottom:26px}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-pill span{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.hero-content{position:relative;z-index:2;max-width:720px}
+.hero-pre{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,10vw,108px);font-weight:500;line-height:.88;color:#fff;margin-bottom:26px;letter-spacing:-1px}
 .hero h1 em{font-style:italic;color:var(--gold);display:block}
-.hero-sub{font-size:clamp(14px,2.5vw,17px);color:rgba(255,255,255,.62);line-height:1.8;max-width:480px;margin:0 auto 44px;font-weight:300}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-hero-primary{font-size:13px;font-weight:600;letter-spacing:.5px;background:var(--cream);color:var(--ink);border:none;padding:16px 38px;border-radius:40px;transition:var(--transition)}
-.btn-hero-primary:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
-.btn-hero-secondary{font-size:13px;font-weight:500;letter-spacing:.5px;background:transparent;color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.3);padding:16px 38px;border-radius:40px;transition:var(--transition)}
-.btn-hero-secondary:hover{border-color:rgba(255,255,255,.7);color:#fff}
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
-.hero-scroll span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);font-weight:500}
-.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(201,150,58,.6),transparent);animation:drip 2.2s ease-in-out infinite}
+.hero-sub{font-size:clamp(14px,2vw,16px);color:rgba(255,255,255,.58);line-height:1.85;max-width:440px;margin:0 auto 40px;font-weight:300}
+.hero-btns{display:flex;gap:11px;justify-content:center;flex-wrap:wrap}
+.btn-primary{font-size:13px;font-weight:600;background:var(--cream);color:var(--ink);border:none;padding:15px 36px;border-radius:40px;transition:all .25s var(--ease)}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.btn-outline{font-size:13px;font-weight:500;background:transparent;color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.28);padding:15px 36px;border-radius:40px;transition:all .25s}
+.btn-outline:hover{border-color:rgba(255,255,255,.65);color:#fff}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:7px}
+.hero-scroll span{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:500}
+.scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,rgba(201,150,58,.55),transparent);animation:drip 2.2s ease-in-out infinite}
 @keyframes drip{0%,100%{transform:scaleY(.2);transform-origin:top;opacity:.3}60%{transform:scaleY(1);transform-origin:top;opacity:1}}
 
-/* ━━━━ STATS BAR ━━━━ */
-.statsbar{background:var(--ink);padding:0}
-.statsbar-inner{max-width:1200px;margin:0 auto;display:flex}
-.sbar-item{flex:1;padding:20px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
-.sbar-item:last-child{border-right:none}
-.sbar-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);line-height:1}
-.sbar-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:5px;font-weight:500}
+/* ── STATS ── */
+.stats{background:var(--ink)}
+.stats-inner{max-width:1140px;margin:0 auto;display:flex}
+.stat{flex:1;padding:20px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.stat:last-child{border:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold);line-height:1}
+.stat-l{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-top:5px;font-weight:500}
 
-/* ━━━━ TICKER ━━━━ */
-.ticker{background:var(--sage2);overflow:hidden;padding:12px 0}
-.ticker-inner{display:flex;white-space:nowrap;animation:roll 28s linear infinite}
-.ticker-inner:hover{animation-play-state:paused}
-.t-item{font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55);padding:0 32px;display:inline-flex;align-items:center;gap:32px}
-.t-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.4);flex-shrink:0}
-@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ── SECTION BASE ── */
+.sec{padding:80px 24px}
+.wrap{max-width:1140px;margin:0 auto}
+.label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.label::before{content:'';width:16px;height:1px;background:var(--sage)}
+h2.title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,56px);font-weight:500;line-height:.9;color:var(--ink);margin-bottom:14px}
+h2.title .hl{color:var(--sage)}
+.body-txt{font-size:15px;color:var(--stone);line-height:1.85;max-width:480px;font-weight:300}
 
-/* ━━━━ SECTION BASE ━━━━ */
-.sec{padding:96px 24px}
-.sec-inner{max-width:1200px;margin:0 auto}
-.label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sage2);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.label::before{content:'';width:20px;height:1px;background:var(--sage2)}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:500;line-height:.92;color:var(--ink);margin-bottom:16px}
-.sec-title .hl{color:var(--sage2)}
-.sec-title .gold{color:var(--gold)}
-.sec-body{font-size:15px;color:var(--stone);line-height:1.85;max-width:500px;font-weight:300}
+/* ── SERVICES ── */
+.services{background:var(--cream)}
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.pkg{border-radius:var(--r2);overflow:hidden;border:1px solid var(--line);background:var(--white);display:flex;flex-direction:column;transition:all .3s var(--ease);position:relative}
+.pkg:hover{transform:translateY(-5px);border-color:var(--sage);box-shadow:0 20px 48px rgba(93,138,115,.12)}
+.pkg.feat{border-color:var(--sage)}
+.pbadge{position:absolute;top:11px;left:11px;z-index:3;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:20px}
+.pb-pop{background:var(--sage);color:#fff}
+.pb-val{background:var(--ink);color:var(--gold)}
+.pimg{height:180px;overflow:hidden;background:#111}
+.pimg img{width:100%;height:100%;object-fit:cover;filter:brightness(.82);transition:transform .5s,filter .4s}
+.pkg:hover .pimg img{transform:scale(1.04);filter:brightness(.92)}
+.pbody{padding:22px 18px;flex:1;display:flex;flex-direction:column}
+.pname{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.plist{list-style:none;flex:1;margin-bottom:18px}
+.plist li{font-size:12px;color:var(--stone);padding:6px 0;border-bottom:1px solid var(--off);display:flex;align-items:center;gap:9px;line-height:1.4;font-weight:300}
+.plist li:last-child{border:none}
+.pck{width:16px;height:16px;border-radius:50%;background:var(--sage-light);border:1px solid rgba(93,138,115,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pck svg{width:8px;height:8px;fill:none;stroke:var(--sage);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pcta{font-size:12px;font-weight:600;background:var(--ink);color:var(--cream);border:none;padding:12px;border-radius:10px;width:100%;transition:all .22s}
+.pcta:hover{background:var(--ink2)}
 
-/* ━━━━ INTRO ━━━━ */
-.intro-section{background:var(--ink);padding:80px 24px;text-align:center}
-.intro-inner{max-width:760px;margin:0 auto}
-.intro-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:400;color:var(--cream);line-height:1.15;margin-bottom:20px}
-.intro-section .lead{font-size:16px;color:rgba(255,255,255,.45);line-height:1.85;font-weight:300}
+/* ── REQUIREMENTS ── */
+.req{background:var(--white);border-top:1px solid var(--line)}
+.req-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:52px}
+.req-head-note{font-size:15px;color:var(--stone);line-height:1.85;font-weight:300}
+.req-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+.rcard{background:var(--off);border-radius:var(--r2);padding:28px 22px;transition:all .3s var(--ease);position:relative;overflow:hidden;border:1px solid transparent}
+.rcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--sage);transform:scaleX(0);transform-origin:left;transition:transform .32s var(--ease)}
+.rcard:hover{background:var(--white);border-color:var(--line);box-shadow:0 14px 36px rgba(0,0,0,.06);transform:translateY(-3px)}
+.rcard:hover::after{transform:scaleX(1)}
+.ricon{font-size:20px;margin-bottom:16px}
+.rcard h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.rlist{list-style:none}
+.rlist li{font-size:12.5px;color:var(--stone);padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:9px;line-height:1.55;font-weight:300}
+.rlist li:last-child{border:none}
+.rchk{width:17px;height:17px;border-radius:50%;background:var(--sage-light);border:1px solid rgba(93,138,115,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.rchk svg{width:8px;height:8px;fill:none;stroke:var(--sage);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.req-banner{background:var(--ink);border-radius:24px;padding:38px 44px;display:flex;align-items:center;gap:28px}
+.rbicon{font-size:32px;flex-shrink:0}
+.rbtext{flex:1}
+.rbtext h4{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--cream);margin-bottom:5px}
+.rbtext p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.7;font-weight:300;margin:0}
+.rbbtn{font-size:12px;font-weight:600;background:var(--sage);color:#fff;border:none;padding:13px 24px;border-radius:40px;transition:all .25s;flex-shrink:0;white-space:nowrap}
+.rbbtn:hover{background:#4d7a63;transform:translateY(-1px)}
 
-/* ━━━━ PHOTO MOSAIC ━━━━ */
-.mosaic{display:grid;gap:3px}
-.mosaic-4{grid-template-columns:1fr 1fr;grid-template-rows:340px 340px}
-.mosaic-item{overflow:hidden;position:relative}
-.mosaic-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.4,0,.2,1),filter .4s}
-.mosaic-item:hover img{transform:scale(1.05);filter:brightness(1.08) saturate(1.05)}
-.mosaic-label{position:absolute;bottom:14px;left:14px;background:rgba(250,248,243,.92);backdrop-filter:blur(10px);padding:6px 14px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink)}
-.mosaic-row{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:220px}
+/* ── REVIEWS ── */
+.reviews{background:var(--off);border-top:1px solid var(--line)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+.rrev{background:var(--white);border:1px solid var(--line);border-radius:var(--r2);padding:26px;transition:all .3s}
+.rrev:hover{border-color:var(--sage);transform:translateY(-3px);box-shadow:0 10px 28px rgba(93,138,115,.1)}
+.rstars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.rtext{font-size:13px;color:var(--stone);line-height:1.8;font-style:italic;margin-bottom:18px;font-weight:300}
+.rauthor{display:flex;align-items:center;gap:11px;border-top:1px solid var(--line);padding-top:14px}
+.rav{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--sage),#7ab898);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.rname{font-size:13px;font-weight:600;color:var(--ink)}
+.rcity{font-size:11px;color:var(--muted);margin-top:1px}
 
-/* ━━━━ PACKAGES ━━━━ */
-.packages-section{background:var(--cream);padding:96px 24px}
-.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
-.pkg-card{border-radius:var(--r2);overflow:hidden;border:1px solid var(--line);background:var(--white);display:flex;flex-direction:column;transition:var(--transition);position:relative}
-.pkg-card:hover{transform:translateY(-6px);border-color:var(--sage);box-shadow:0 24px 56px rgba(93,138,115,.12)}
-.pkg-card.featured{border-color:var(--sage);box-shadow:0 4px 20px rgba(93,138,115,.1)}
-.pkg-badge{position:absolute;top:12px;left:12px;z-index:3;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:20px}
-.badge-pop{background:var(--sage2);color:#fff}
-.badge-full{background:var(--ink);color:var(--gold)}
-.pkg-img-wrap{position:relative;height:190px;overflow:hidden;background:#111}
-.pkg-img-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:transform .5s,filter .4s}
-.pkg-card:hover .pkg-img-wrap img{transform:scale(1.04);filter:brightness(.95)}
-.pkg-body{padding:24px 20px;flex:1;display:flex;flex-direction:column}
-.pkg-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:16px}
-.pkg-features{list-style:none;flex:1;margin-bottom:20px}
-.pkg-features li{font-size:13px;color:var(--stone);padding:7px 0;border-bottom:1px solid var(--off);display:flex;align-items:center;gap:10px;line-height:1.4;font-weight:300}
-.pkg-features li:last-child{border-bottom:none}
-.pkg-features li .ck{width:18px;height:18px;border-radius:50%;background:var(--sage-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:var(--sage2);font-weight:700;border:1px solid rgba(93,138,115,.2)}
-.pkg-cta{font-size:12px;font-weight:600;letter-spacing:.5px;background:var(--ink);color:var(--cream);border:none;padding:13px;border-radius:10px;width:100%;transition:var(--transition)}
-.pkg-cta:hover{background:var(--ink2)}
-.pkg-cta.soon-cta{background:var(--gold-light);color:var(--gold);border:1px solid rgba(201,150,58,.25)}
+/* ── CONTACT ── */
+.contact{background:var(--cream);border-top:1px solid var(--line)}
+.contact-inner{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+.contact-left h2{margin-bottom:14px}
+.contact-left p{font-size:15px;color:var(--stone);line-height:1.85;font-weight:300;margin-bottom:28px}
+.cinfo{display:flex;flex-direction:column;gap:13px;margin-top:28px}
+.cib{display:flex;align-items:flex-start;gap:12px}
+.cib-ic{width:38px;height:38px;border-radius:10px;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.cib-tx strong{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:1px}
+.cib-tx span{font-size:13px;color:var(--stone);font-weight:300}
+.form-card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:38px;box-shadow:0 4px 20px rgba(0,0,0,.04);position:relative;overflow:hidden}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage),var(--gold),var(--sage))}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--off);border:1.5px solid var(--line);color:var(--ink);padding:11px 13px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;border-radius:10px;transition:all .2s;appearance:none;font-weight:300}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sage);background:var(--white)}
+.fg textarea{min-height:80px;resize:vertical}
+.fsub{width:100%;background:var(--ink);color:var(--cream);border:none;padding:14px;font-size:13px;font-weight:600;letter-spacing:.3px;border-radius:40px;margin-top:6px;transition:all .25s}
+.fsub:hover{background:var(--ink2);transform:translateY(-1px)}
 
-/* ━━━━ COMING SOON ━━━━ */
-.soon-section{background:var(--off);padding:72px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.soon-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center}
-.soon-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,50px);font-weight:500;color:var(--ink);line-height:.92;margin-bottom:14px}
-.soon-left h2 span{color:var(--sage2)}
-.soon-left p{font-size:14px;color:var(--stone);line-height:1.8;font-weight:300}
-.soon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.soon-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r2);padding:28px 22px;transition:var(--transition)}
-.soon-card:hover{border-color:var(--sage);transform:translateY(-4px)}
-.soon-card-icon{font-size:22px;margin-bottom:14px}
-.soon-badge{display:inline-flex;align-items:center;gap:6px;background:var(--sage-light);border-radius:20px;padding:4px 12px;margin-bottom:12px}
-.soon-badge span{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage2)}
-.soon-card h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:10px}
-.soon-card p{font-size:13px;color:var(--stone);line-height:1.7;font-weight:300}
+/* ── FOOTER ── */
+footer{background:#111110;padding:52px 24px 24px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-inner{max-width:1140px;margin:0 auto}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.fbrand .fname{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;letter-spacing:.5px}
+.fbrand .fsub{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:2px}
+.fbrand p{font-size:12px;color:rgba(255,255,255,.26);line-height:1.85;margin-top:14px;max-width:240px;font-weight:300}
+.fcol h4{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
+.fcol a{display:block;font-size:13px;color:rgba(255,255,255,.28);text-decoration:none;margin-bottom:9px;transition:color .2s;font-weight:300}
+.fcol a:hover{color:#fff}
+.fcol p{font-size:13px;color:rgba(255,255,255,.28);margin-bottom:8px;font-weight:300}
+.fcol p span{color:rgba(255,255,255,.52)}
+.fbot{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fbot p{font-size:11px;color:rgba(255,255,255,.16)}
+.fbot strong{color:var(--sage);font-weight:400}
+.fcities{font-size:10px;color:rgba(255,255,255,.1);letter-spacing:1.5px;text-transform:uppercase}
 
-/* ━━━━ VIDEO ━━━━ */
-.video-section{background:var(--ink);padding:0}
-.video-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:480px}
-.video-left{padding:72px 52px;display:flex;flex-direction:column;justify-content:center}
-.vid-kicker{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--sage);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.vid-kicker::before{content:'';width:16px;height:1px;background:var(--sage)}
-.video-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,50px);font-weight:400;color:var(--cream);line-height:.92;margin-bottom:20px}
-.video-left h2 span{color:var(--gold)}
-.video-left p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.8;margin-bottom:28px;font-weight:300}
-.vid-watch-btn{display:inline-flex;align-items:center;gap:12px;background:var(--sage2);color:#fff;font-size:12px;font-weight:600;letter-spacing:.5px;border:none;padding:14px 28px;border-radius:40px;transition:var(--transition);width:fit-content}
-.vid-watch-btn:hover{background:var(--sage);transform:translateY(-2px)}
-.vid-watch-btn svg{width:14px;height:14px;fill:#fff}
-.video-right{position:relative;background:#000;overflow:hidden;min-height:380px}
-.video-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5)}
-.play-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background .3s}
-.play-overlay:hover{background:rgba(0,0,0,.15)}
-.play-circle{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;transition:var(--transition)}
-.play-circle:hover{transform:scale(1.1);box-shadow:0 0 0 14px rgba(255,255,255,.12)}
-.play-circle svg{width:20px;height:20px;fill:var(--ink);margin-left:3px}
-.play-txt{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55)}
-
-/* ━━━━ TRUST ROW ━━━━ */
-.trust-row{background:var(--cream);padding:48px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.trust-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:20px}
-.trust-item{text-align:center;flex:1;min-width:120px}
-.trust-icon{font-size:26px;margin-bottom:8px}
-.trust-label{font-size:13px;font-weight:600;color:var(--ink)}
-.trust-sub{font-size:11px;color:var(--muted);margin-top:2px}
-
-/* ━━━━ AREAS ━━━━ */
-.areas-section{background:var(--ink);padding:96px 24px}
-.areas-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.areas-left .label{color:rgba(255,255,255,.3)}
-.areas-left .label::before{background:rgba(255,255,255,.2)}
-.areas-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.5vw,54px);font-weight:500;color:#fff;line-height:.9;margin-bottom:18px}
-.areas-left h2 .hl{color:var(--gold)}
-.areas-left p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.85;max-width:380px;margin-bottom:28px;font-weight:300}
-.city-pills{display:flex;flex-wrap:wrap;gap:8px}
-.city-pill{font-size:11px;font-weight:500;letter-spacing:.5px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);padding:8px 16px;border-radius:40px;transition:var(--transition)}
-.city-pill:hover{border-color:var(--sage);color:var(--sage)}
-.area-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:44px;text-align:center;backdrop-filter:blur(8px)}
-.area-ping{width:14px;height:14px;border-radius:50%;background:var(--sage);margin:0 auto 20px;box-shadow:0 0 0 0 rgba(122,158,138,.5);animation:areaping 2.5s ease-out infinite}
-@keyframes areaping{0%{box-shadow:0 0 0 0 rgba(122,158,138,.6)}100%{box-shadow:0 0 0 40px rgba(122,158,138,0)}}
-.area-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:#fff;letter-spacing:.5px;margin-bottom:6px}
-.area-card .area-note{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px}
-.area-card p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.75;max-width:260px;margin:0 auto 24px;font-weight:300}
-
-/* ━━━━ CONTENT SECTION ━━━━ */
-.content-section{background:var(--white);padding:96px 24px}
-.content-inner{max-width:1100px;margin:0 auto}
-.content-2col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.content-section h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin:28px 0 12px}
-.content-section h2:first-child{margin-top:0}
-.content-section p{font-size:15px;color:var(--stone);line-height:1.9;margin-bottom:16px;font-weight:300}
-.side-img{border-radius:var(--r2);overflow:hidden}
-.side-img img{width:100%;height:320px;object-fit:cover}
-.side-img-2{border-radius:var(--r2);overflow:hidden;margin-top:3px}
-.side-img-2 img{width:100%;height:200px;object-fit:cover}
-.highlight-box{background:var(--sage-light);border-left:3px solid var(--sage2);border-radius:0 10px 10px 0;padding:18px 22px;margin:24px 0}
-.highlight-box p{font-size:14px;color:var(--stone);line-height:1.75;margin:0;font-weight:300}
-.highlight-box strong{color:var(--ink)}
-
-/* ━━━━ CONTACT FORM ━━━━ */
-.contact-section{background:var(--off);padding:96px 24px;border-top:1px solid var(--line)}
-.contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}
-.contact-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:500;color:var(--ink);line-height:.92;margin-bottom:18px}
-.contact-left h2 .hl{color:var(--sage2)}
-.contact-left p{font-size:15px;color:var(--stone);line-height:1.85;margin-bottom:28px;font-weight:300}
-.contact-info-block{margin-top:32px;display:flex;flex-direction:column;gap:14px}
-.cib{display:flex;align-items:flex-start;gap:14px}
-.cib-icon{width:40px;height:40px;border-radius:10px;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.cib-text strong{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
-.cib-text span{font-size:13px;color:var(--stone)}
-.form-card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.04);position:relative;overflow:hidden}
-.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage2),var(--gold),var(--sage2))}
-.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fg{margin-bottom:14px}
-.fg label{display:block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.fg input,.fg select,.fg textarea{width:100%;background:var(--off);border:1.5px solid var(--line);color:var(--ink);padding:12px 14px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;border-radius:10px;transition:var(--transition);appearance:none;font-weight:300}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sage2);background:var(--white)}
-.fg textarea{min-height:90px;resize:vertical}
-.form-submit{width:100%;background:var(--ink);color:var(--cream);border:none;padding:15px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;border-radius:40px;margin-top:8px;transition:var(--transition)}
-.form-submit:hover{background:var(--ink2);transform:translateY(-1px)}
-
-/* ━━━━ FAQ ━━━━ */
-.faq-section{background:var(--white);padding:96px 24px}
-.faq-inner{max-width:1100px;margin:0 auto}
-.faq-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:52px}
-.faq-card{border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;background:var(--white)}
-.faq-btn{width:100%;background:none;border:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px;text-align:left;transition:background .2s}
-.faq-btn:hover{background:var(--off)}
-.faq-q-text{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4}
-.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--muted);transition:var(--transition);font-weight:300;flex-shrink:0}
-.faq-btn.open .faq-icon{background:var(--sage2);border-color:var(--sage2);color:#fff;transform:rotate(45deg)}
-.faq-ans{max-height:0;overflow:hidden;transition:max-height .36s ease,padding .3s}
-.faq-ans.open{max-height:280px;padding-bottom:20px}
-.faq-ans p{font-size:14px;color:var(--stone);line-height:1.8;padding:0 22px;font-weight:300}
-
-/* ━━━━ REVIEWS ━━━━ */
-.reviews-section{background:var(--off);padding:96px 24px;border-top:1px solid var(--line)}
-.reviews-inner{max-width:1200px;margin:0 auto}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
-.rev-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r2);padding:28px;transition:var(--transition)}
-.rev-card:hover{border-color:var(--sage);transform:translateY(-4px);box-shadow:0 12px 32px rgba(93,138,115,.1)}
-.rev-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
-.rev-text{font-size:14px;color:var(--stone);line-height:1.8;font-style:italic;margin-bottom:20px;font-weight:300}
-.rev-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
-.rev-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--sage2),var(--sage));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
-.rev-name{font-size:13px;font-weight:600;color:var(--ink)}
-.rev-city{font-size:11px;color:var(--muted);margin-top:1px}
-
-/* ━━━━ OTHER SERVICES ━━━━ */
-.other-section{background:var(--ink);padding:96px 24px}
-.other-inner{max-width:1200px;margin:0 auto}
-.other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
-.other-card{border-radius:var(--r2);overflow:hidden;position:relative;height:220px}
-.other-card img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);transition:all .5s}
-.other-card:hover img{filter:brightness(.68);transform:scale(1.04)}
-.other-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,24,.9) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
-.other-card-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:3px}
-.other-card-note{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:500}
-.other-soon-badge{position:absolute;top:12px;right:12px;font-size:8px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:rgba(201,150,58,.15);border:1px solid rgba(201,150,58,.35);color:var(--gold);padding:5px 10px;border-radius:20px}
-.other-avail-badge{position:absolute;top:12px;right:12px;font-size:8px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:rgba(93,138,115,.2);border:1px solid rgba(93,138,115,.35);color:var(--sage);padding:5px 10px;border-radius:20px}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   REQUIREMENTS SECTION — Modern Calm
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.req-section{background:var(--white);padding:96px 24px}
-.req-inner{max-width:1100px;margin:0 auto}
-.req-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:64px}
-.req-intro-right p{font-size:15px;color:var(--stone);line-height:1.9;font-weight:300}
-.req-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
-.req-card{background:var(--off);border-radius:var(--r2);padding:32px 26px;transition:var(--transition);border:1px solid transparent;position:relative;overflow:hidden}
-.req-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sage2),var(--sage));transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
-.req-card:hover{background:var(--white);border-color:var(--line);box-shadow:0 16px 40px rgba(0,0,0,.06);transform:translateY(-4px)}
-.req-card:hover::after{transform:scaleX(1)}
-.req-card-icon{width:48px;height:48px;border-radius:14px;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px}
-.req-card h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:16px}
-.req-list{list-style:none}
-.req-list li{font-size:13px;color:var(--stone);padding:8px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:10px;line-height:1.55;font-weight:300}
-.req-list li:last-child{border-bottom:none}
-.req-check{width:18px;height:18px;border-radius:50%;background:var(--sage-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid rgba(93,138,115,.2)}
-.req-check svg{width:9px;height:9px;fill:none;stroke:var(--sage2);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
-/* Requirements Banner */
-.req-banner{background:var(--ink);border-radius:var(--r3);padding:44px 48px;display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.req-banner-icon{font-size:36px;flex-shrink:0}
-.req-banner-text{flex:1;min-width:200px}
-.req-banner-text h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--cream);margin-bottom:6px}
-.req-banner-text p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin:0;font-weight:300}
-.req-banner-cta{font-size:13px;font-weight:600;letter-spacing:.3px;background:var(--sage2);color:#fff;border:none;padding:14px 28px;border-radius:40px;transition:var(--transition);flex-shrink:0;white-space:nowrap}
-.req-banner-cta:hover{background:var(--sage);transform:translateY(-2px)}
-
-/* ━━━━ FOOTER ━━━━ */
-footer{background:#111110;padding:64px 24px 28px;border-top:1px solid rgba(255,255,255,.05)}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-.footer-brand .f-logo-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--white);letter-spacing:.5px}
-.footer-brand .f-logo-sub{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.22);margin-top:2px}
-.footer-brand p{font-size:12px;color:rgba(255,255,255,.28);line-height:1.85;margin-top:16px;max-width:260px;font-weight:300}
-.footer-col h4{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:18px}
-.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;margin-bottom:10px;transition:color .2s;font-weight:300}
-.footer-col a:hover{color:var(--white)}
-.footer-col p{font-size:13px;color:rgba(255,255,255,.3);margin-bottom:8px;font-weight:300}
-.footer-col p span{color:rgba(255,255,255,.55)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom p{font-size:11px;color:rgba(255,255,255,.18)}
-.footer-bottom strong{color:var(--sage);font-weight:400}
-.footer-cities{font-size:10px;color:rgba(255,255,255,.12);letter-spacing:1.5px;text-transform:uppercase}
-
-/* ━━━━ MODAL ━━━━ */
-#modal-bg{display:none;position:fixed;inset:0;background:rgba(26,26,24,.85);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(16px);padding:20px}
+/* ── MODAL ── */
+#modal-bg{display:none;position:fixed;inset:0;background:rgba(26,26,24,.82);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(18px);padding:20px}
 #modal-bg.on{display:flex}
-#modal-box{background:var(--white);border-radius:24px;padding:52px;text-align:center;max-width:420px;width:100%;position:relative;border:1px solid var(--line);box-shadow:0 32px 80px rgba(0,0,0,.25)}
-#modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage2),var(--gold),var(--sage2));border-radius:24px 24px 0 0}
-#modal-box .m-icon{font-size:40px;margin-bottom:14px}
-#modal-box h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--ink);margin-bottom:12px}
-#modal-box p{font-size:14px;color:var(--stone);line-height:1.75;margin-bottom:28px;font-weight:300}
-#modal-close{font-size:13px;font-weight:600;background:var(--ink);color:var(--cream);border:none;padding:13px 36px;border-radius:40px;transition:var(--transition)}
+#modal-box{background:var(--white);border-radius:22px;padding:48px;text-align:center;max-width:400px;width:100%;border:1px solid var(--line);box-shadow:0 28px 72px rgba(0,0,0,.22);position:relative;overflow:hidden}
+#modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage),var(--gold),var(--sage))}
+.m-icon{font-size:38px;margin-bottom:12px}
+#modal-box h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--ink);margin-bottom:10px}
+#modal-box p{font-size:14px;color:var(--stone);line-height:1.75;margin-bottom:26px;font-weight:300}
+#modal-close{font-size:13px;font-weight:600;background:var(--ink);color:var(--cream);border:none;padding:12px 34px;border-radius:40px;transition:all .2s}
 #modal-close:hover{background:var(--ink2)}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   MOBILE RESPONSIVE — Mobile First
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ══════════════════════════════
+   RESPONSIVE — Mobile First
+══════════════════════════════ */
 @media(max-width:960px){
-  .nav-links,.nav-actions{display:none}
-  .nav-ham{display:flex}
+  .nav-links,.nav-cta{display:none}
+  .ham{display:flex}
 
-  /* hero */
-  .hero{min-height:88vh;padding:80px 20px 60px}
-  .hero h1{font-size:clamp(44px,13vw,72px)}
-  .hero-btns{gap:10px}
-  .btn-hero-primary,.btn-hero-secondary{padding:14px 28px;font-size:13px}
+  .hero{min-height:85vh;padding:80px 20px 56px}
+  .hero-btns{gap:9px}
 
-  /* stats bar */
-  .statsbar-inner{flex-wrap:wrap}
-  .sbar-item{min-width:50%;border-bottom:1px solid rgba(255,255,255,.06)}
+  .stats-inner{flex-wrap:wrap}
+  .stat{min-width:50%;border-bottom:1px solid rgba(255,255,255,.06)}
 
-  /* sections */
-  .sec,.packages-section,.content-section,.contact-section,.faq-section,.reviews-section,.other-section,.areas-section,.req-section{padding:64px 20px}
-  .soon-section{padding:56px 20px}
+  .sec{padding:64px 20px}
 
-  /* grids → single column */
-  .pkg-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .faq-2col,.reviews-grid,.footer-top{grid-template-columns:1fr}
-  .other-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .other-card{height:180px}
-  .req-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .req-intro{grid-template-columns:1fr;gap:24px;margin-bottom:40px}
-
-  /* two-col layouts */
-  .content-2col,.areas-wrap,.contact-inner,.video-wrap,.soon-inner{grid-template-columns:1fr}
-  .video-right{min-height:280px}
-  .video-left{padding:48px 28px}
-
-  /* mosaic */
-  .mosaic-4{grid-template-rows:200px 200px}
-  .mosaic-row{grid-template-columns:1fr 1fr;height:auto}
-  .mosaic-item{height:160px}
-
-  /* form */
-  .form-2col{grid-template-columns:1fr}
-  .form-card{padding:28px 20px}
-
-  /* requirements banner */
-  .req-banner{padding:32px 24px;flex-direction:column;text-align:center;gap:20px}
-
+  /* 4-col → 2-col */
+  .pkg-grid{grid-template-columns:1fr 1fr;gap:11px}
+  /* requirements 3-col → 2-col */
+  .req-grid{grid-template-columns:1fr 1fr;gap:11px}
+  .req-head{grid-template-columns:1fr;gap:18px;margin-bottom:36px}
+  /* reviews 3-col → 1-col */
+  .rev-grid{grid-template-columns:1fr}
+  /* contact */
+  .contact-inner{grid-template-columns:1fr}
+  .form-card{padding:26px 18px}
   /* footer */
-  footer{padding:48px 20px 24px}
-  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .ftop{grid-template-columns:1fr 1fr;gap:28px}
+  /* req banner */
+  .req-banner{flex-direction:column;text-align:center;padding:30px 22px;gap:16px}
+  .rbbtn{width:100%;padding:13px}
 }
 
-@media(max-width:600px){
-  /* hero */
-  .hero h1{font-size:clamp(38px,12vw,58px);letter-spacing:-.5px}
-  .hero-sub{font-size:14px}
+@media(max-width:580px){
+  .hero h1{font-size:clamp(40px,13vw,64px)}
   .hero-btns{flex-direction:column;align-items:center}
-  .btn-hero-primary,.btn-hero-secondary{width:100%;max-width:280px;text-align:center}
-
-  /* stats */
-  .sbar-item{min-width:50%;padding:16px 10px}
-  .sbar-num{font-size:22px}
-
-  /* packages */
+  .btn-primary,.btn-outline{width:100%;max-width:260px}
+  .stat{min-width:50%;padding:15px 8px}
+  .stat-n{font-size:22px}
   .pkg-grid{grid-template-columns:1fr}
-
-  /* requirements */
   .req-grid{grid-template-columns:1fr}
-  .req-banner{border-radius:var(--r2)}
-  .req-banner-cta{width:100%;text-align:center;padding:14px}
-
-  /* other */
-  .other-grid{grid-template-columns:1fr}
-  .other-card{height:200px}
-
-  /* footer */
-  .footer-top{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
-
-  /* misc */
-  .soon-grid{grid-template-columns:1fr}
-  .trust-inner{gap:16px}
-  .trust-item{min-width:45%}
-  .city-pills{gap:6px}
+  .f2{grid-template-columns:1fr}
+  .ftop{grid-template-columns:1fr}
+  .fbot{flex-direction:column;text-align:center;gap:6px}
 }
 </style>
 </head>
 <body>
 
-<div id="dot"></div>
-<div id="ring"></div>
+<div id="dot"></div><div id="ring"></div>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#video" onclick="closeMobile()">How It Works</a>
-  <a href="#areas" onclick="closeMobile()">Service Area</a>
-  <a href="#requirements" onclick="closeMobile()">Requirements</a>
-  <a href="#faq" onclick="closeMobile()">FAQ</a>
-  <a href="#reviews" onclick="closeMobile()">Reviews</a>
-  <a href="#contact" class="mobile-menu-cta" onclick="closeMobile()">Get Free Quote</a>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="cm()">Services</a>
+  <a href="#requirements" onclick="cm()">Requirements</a>
+  <a href="#reviews" onclick="cm()">Reviews</a>
+  <a href="#contact" onclick="cm()">Contact</a>
+  <a href="#contact" class="mob-cta" onclick="cm()">Get Free Quote</a>
 </div>
 
 <!-- TOP BAR -->
 <div class="topbar">
-  <p>🚗 <strong>Luxom Auto Detailing LLC</strong> — Mobile Detailing · McKinney, Frisco, Plano, Allen, Richardson &amp; All DFW · <strong>7 Days a Week</strong></p>
+  <p>🚗 <strong>Luxom Auto Detailing LLC</strong> — Mobile Detailing · McKinney, Frisco, Plano, Allen &amp; All DFW · <strong>7 Days a Week</strong></p>
 </div>
 
-<!-- HEADER / NAV -->
+<!-- NAV -->
 <header id="hdr">
   <nav>
-    <a class="nav-logo" href="#home">
-      <div class="nav-logo-mark"><span>LX</span></div>
-      <div class="nav-logo-text">
+    <a class="logo" href="#home">
+      <div class="logo-mark"><span>LX</span></div>
+      <div class="logo-text">
         <span class="name">LUXOM</span>
         <span class="sub">Auto Detailing LLC</span>
       </div>
     </a>
     <div class="nav-links">
       <a href="#services">Services</a>
-      <a href="#video">How It Works</a>
-      <a href="#areas">Service Area</a>
       <a href="#requirements">Requirements</a>
-      <a href="#faq">FAQ</a>
       <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="nav-actions">
-      <button class="btn-ghost" onclick="go('contact')">Learn More</button>
-      <button class="btn-fill" onclick="go('contact')">Get Free Quote</button>
+    <div class="nav-cta">
+      <button class="btn-nav" onclick="go('contact')">Get Free Quote</button>
     </div>
-    <button class="nav-ham" id="ham" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+    <button class="ham" id="ham" onclick="tm()"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1920&q=88&fit=crop" alt="Luxury sports car being professionally detailed" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=85&fit=crop'">
+    <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1920&q=88&fit=crop" alt="Luxury car being professionally detailed" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=85&fit=crop'">
   </div>
   <div class="hero-pill">
-    <div class="hero-pill-dot"></div>
+    <div class="pill-dot"></div>
     <span>McKinney, TX &amp; DFW Metroplex</span>
   </div>
   <div class="hero-content">
-    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(12px,2vw,14px);font-weight:400;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px">Premium Mobile Auto Detailing</p>
+    <p class="hero-pre">Premium Mobile Auto Detailing</p>
     <h1>PROTECT YOUR CAR<em>BEFORE DAMAGE STARTS.</em></h1>
-    <p class="hero-sub">Professional-grade mobile detailing delivered to your driveway, office, or anywhere convenient — serving McKinney, Frisco, Plano, Allen, Richardson &amp; all DFW.</p>
+    <p class="hero-sub">Professional-grade mobile detailing delivered to your driveway, office, or anywhere in DFW — McKinney, Frisco, Plano, Allen, Richardson &amp; beyond.</p>
     <div class="hero-btns">
-      <button class="btn-hero-primary" onclick="go('contact')">Get Free Quote</button>
-      <button class="btn-hero-secondary" onclick="go('services')">View Services ↓</button>
+      <button class="btn-primary" onclick="go('contact')">Get Free Quote</button>
+      <button class="btn-outline" onclick="go('services')">View Services ↓</button>
     </div>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
 </section>
 
-<!-- STATS BAR -->
-<div class="statsbar">
-  <div class="statsbar-inner">
-    <div class="sbar-item"><div class="sbar-num">100%</div><div class="sbar-lbl">Mobile Service</div></div>
-    <div class="sbar-item"><div class="sbar-num">5★</div><div class="sbar-lbl">Client Rated</div></div>
-    <div class="sbar-item"><div class="sbar-num">7</div><div class="sbar-lbl">Days a Week</div></div>
-    <div class="sbar-item"><div class="sbar-num">LLC</div><div class="sbar-lbl">Licensed &amp; Insured</div></div>
-    <div class="sbar-item"><div class="sbar-num">DFW</div><div class="sbar-lbl">Metro Coverage</div></div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Mobile Service</div></div>
+    <div class="stat"><div class="stat-n">5★</div><div class="stat-l">Client Rated</div></div>
+    <div class="stat"><div class="stat-n">7</div><div class="stat-l">Days a Week</div></div>
+    <div class="stat"><div class="stat-n">LLC</div><div class="stat-l">Licensed &amp; Insured</div></div>
+    <div class="stat"><div class="stat-n">DFW</div><div class="stat-l">Metro Coverage</div></div>
   </div>
 </div>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="t-item">Exterior Wash &amp; Detail<span class="t-dot"></span></span>
-    <span class="t-item">Interior Deep Clean<span class="t-dot"></span></span>
-    <span class="t-item">Full Detail Package<span class="t-dot"></span></span>
-    <span class="t-item">Engine Bay Cleaning<span class="t-dot"></span></span>
-    <span class="t-item">McKinney · Frisco · Plano · Allen · Richardson · Lewisville<span class="t-dot"></span></span>
-    <span class="t-item">We Come To You — 100% Mobile<span class="t-dot"></span></span>
-    <span class="t-item">Ceramic Coating — Coming Soon<span class="t-dot"></span></span>
-    <span class="t-item">Paint Protection Film — Coming Soon<span class="t-dot"></span></span>
-    <span class="t-item">Exterior Wash &amp; Detail<span class="t-dot"></span></span>
-    <span class="t-item">Interior Deep Clean<span class="t-dot"></span></span>
-    <span class="t-item">Full Detail Package<span class="t-dot"></span></span>
-    <span class="t-item">Engine Bay Cleaning<span class="t-dot"></span></span>
-    <span class="t-item">McKinney · Frisco · Plano · Allen · Richardson · Lewisville<span class="t-dot"></span></span>
-    <span class="t-item">We Come To You — 100% Mobile<span class="t-dot"></span></span>
-    <span class="t-item">Ceramic Coating — Coming Soon<span class="t-dot"></span></span>
-    <span class="t-item">Paint Protection Film — Coming Soon<span class="t-dot"></span></span>
-  </div>
-</div>
-
-<!-- INTRO -->
-<div class="intro-section">
-  <div class="intro-inner">
-    <div class="label" style="justify-content:center;margin-bottom:18px;color:rgba(255,255,255,.3)"><span style="width:16px;height:1px;background:rgba(255,255,255,.2);display:block"></span>Premium Mobile Detailing</div>
-    <h2>Ultimate Mobile Detail Experience</h2>
-    <p class="lead">Our professional detailing services are performed with premium, professional-grade products that deliver superior results — protecting your vehicle's paint, preserving your interior, and restoring every surface to showroom condition. We bring the detail shop directly to you.</p>
-  </div>
-</div>
-
-<!-- PHOTO MOSAIC -->
-<div class="mosaic mosaic-4">
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?w=800&q=88&fit=crop" alt="Lamborghini Huracán detail"><div class="mosaic-label">Exterior Detail</div></div>
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=88&fit=crop" alt="Porsche 911 GT3 clean"><div class="mosaic-label">Full Detail</div></div>
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=88&fit=crop" alt="Supercar showroom finish"><div class="mosaic-label">Paint Perfection</div></div>
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=88&fit=crop" alt="Luxury car mobile detail"><div class="mosaic-label">Mobile Service</div></div>
-</div>
-
-<!-- PACKAGES -->
-<section class="packages-section" id="services">
-  <div class="sec-inner">
+<!-- SERVICES -->
+<section class="sec services" id="services">
+  <div class="wrap">
     <div class="label">Our Packages</div>
-    <h2 class="sec-title">Choose Your<br><span class="hl">Detail Package</span></h2>
-    <p class="sec-body">Every service delivered mobile — we come to your home, office, or anywhere in the DFW area. Professional-grade products, obsessive attention to detail, guaranteed results.</p>
+    <h2 class="title">Choose Your<br><span class="hl">Detail Package</span></h2>
+    <p class="body-txt" style="margin-bottom:0">Every service is 100% mobile — we come to you. Professional products, obsessive detail, guaranteed results.</p>
     <div class="pkg-grid">
 
-      <div class="pkg-card featured">
-        <div class="pkg-badge badge-pop">Most Popular</div>
-        <div class="pkg-img-wrap"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=500&q=82&fit=crop" alt="Exterior car detail wash"></div>
-        <div class="pkg-body">
-          <div class="pkg-name">Exterior Wash &amp; Detail</div>
-          <ul class="pkg-features">
-            <li><span class="ck">✓</span>Full hand wash &amp; rinse</li>
-            <li><span class="ck">✓</span>Clay bar treatment</li>
-            <li><span class="ck">✓</span>Wheel &amp; tire deep clean</li>
-            <li><span class="ck">✓</span>Tire dressing applied</li>
-            <li><span class="ck">✓</span>Streak-free glass polish</li>
+      <div class="pkg feat">
+        <div class="pbadge pb-pop">Most Popular</div>
+        <div class="pimg"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=500&q=82&fit=crop" alt="Exterior detail"></div>
+        <div class="pbody">
+          <div class="pname">Exterior Wash &amp; Detail</div>
+          <ul class="plist">
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Full hand wash &amp; rinse</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Clay bar treatment</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Wheel &amp; tire deep clean</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Tire dressing applied</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Streak-free glass polish</li>
           </ul>
-          <button class="pkg-cta" onclick="go('contact')">Get Quote →</button>
+          <button class="pcta" onclick="go('contact')">Get Quote →</button>
         </div>
       </div>
 
-      <div class="pkg-card">
-        <div class="pkg-img-wrap"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=82&fit=crop" alt="Interior car detail clean"></div>
-        <div class="pkg-body">
-          <div class="pkg-name">Interior Detail</div>
-          <ul class="pkg-features">
-            <li><span class="ck">✓</span>Deep vacuum &amp; extraction</li>
-            <li><span class="ck">✓</span>Steam clean &amp; sanitize</li>
-            <li><span class="ck">✓</span>Leather conditioning</li>
-            <li><span class="ck">✓</span>Dashboard &amp; trim treatment</li>
-            <li><span class="ck">✓</span>Full odor elimination</li>
+      <div class="pkg">
+        <div class="pimg"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=82&fit=crop" alt="Interior detail"></div>
+        <div class="pbody">
+          <div class="pname">Interior Detail</div>
+          <ul class="plist">
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Deep vacuum &amp; extraction</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Steam clean &amp; sanitize</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Leather conditioning</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Dashboard &amp; trim treatment</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Full odor elimination</li>
           </ul>
-          <button class="pkg-cta" onclick="go('contact')">Get Quote →</button>
+          <button class="pcta" onclick="go('contact')">Get Quote →</button>
         </div>
       </div>
 
-      <div class="pkg-card">
-        <div class="pkg-badge badge-full">Best Value</div>
-        <div class="pkg-img-wrap"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&q=82&fit=crop" alt="Full car detail package"></div>
-        <div class="pkg-body">
-          <div class="pkg-name">Full Detail Package</div>
-          <ul class="pkg-features">
-            <li><span class="ck">✓</span>Complete exterior detail</li>
-            <li><span class="ck">✓</span>Complete interior detail</li>
-            <li><span class="ck">✓</span>Engine bay inspection</li>
-            <li><span class="ck">✓</span>Premium sealant &amp; protectant</li>
-            <li><span class="ck">✓</span>100% satisfaction guarantee</li>
+      <div class="pkg">
+        <div class="pbadge pb-val">Best Value</div>
+        <div class="pimg"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&q=82&fit=crop" alt="Full detail"></div>
+        <div class="pbody">
+          <div class="pname">Full Detail Package</div>
+          <ul class="plist">
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Complete exterior detail</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Complete interior detail</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Engine bay inspection</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Premium sealant &amp; protectant</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>100% satisfaction guarantee</li>
           </ul>
-          <button class="pkg-cta" onclick="go('contact')">Get Quote →</button>
+          <button class="pcta" onclick="go('contact')">Get Quote →</button>
         </div>
       </div>
 
-      <div class="pkg-card">
-        <div class="pkg-img-wrap"><img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=500&q=82&fit=crop" alt="Engine bay detail cleaning" onerror="this.src='https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?w=500&q=82&fit=crop'"></div>
-        <div class="pkg-body">
-          <div class="pkg-name">Engine Bay Cleaning</div>
-          <ul class="pkg-features">
-            <li><span class="ck">✓</span>Safe professional degreasing</li>
-            <li><span class="ck">✓</span>Hand-detail cleaning</li>
-            <li><span class="ck">✓</span>Rinse &amp; dry</li>
-            <li><span class="ck">✓</span>Dressing &amp; protect</li>
-            <li><span class="ck">✓</span>Add-on to any package</li>
+      <div class="pkg">
+        <div class="pimg"><img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=500&q=82&fit=crop" alt="Engine bay" onerror="this.src='https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?w=500&q=82&fit=crop'"></div>
+        <div class="pbody">
+          <div class="pname">Engine Bay Cleaning</div>
+          <ul class="plist">
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Safe professional degreasing</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Hand-detail cleaning</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Rinse &amp; dry</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Dressing &amp; protect</li>
+            <li><span class="pck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Add-on to any package</li>
           </ul>
-          <button class="pkg-cta" onclick="go('contact')">Get Quote →</button>
+          <button class="pcta" onclick="go('contact')">Get Quote →</button>
         </div>
       </div>
 
@@ -646,426 +411,272 @@ footer{background:#111110;padding:64px 24px 28px;border-top:1px solid rgba(255,2
   </div>
 </section>
 
-<!-- COMING SOON -->
-<div class="soon-section" id="coming-soon">
-  <div class="soon-inner">
-    <div class="soon-left">
-      <div class="label" style="margin-bottom:16px">Expanding Soon</div>
-      <h2>More Services<br><span>Coming to DFW</span></h2>
-      <p style="margin-top:14px">We're continuously raising the bar. These premium protection services are in active development and launching soon across the DFW Metroplex. Register your interest today — be first in line.</p>
-      <button style="margin-top:28px" class="btn-fill" onclick="go('contact')">Notify Me When Available</button>
-    </div>
-    <div class="soon-grid">
-      <div class="soon-card">
-        <div class="soon-card-icon">💎</div>
-        <div class="soon-badge"><span>Coming Soon</span></div>
-        <h3>Ceramic Coating</h3>
-        <p>Long-lasting nano-ceramic protection that bonds to your paint, delivering hydrophobic, scratch-resistant shine for years.</p>
-      </div>
-      <div class="soon-card">
-        <div class="soon-card-icon">🛡️</div>
-        <div class="soon-badge"><span>Coming Soon</span></div>
-        <h3>Paint Protection Film</h3>
-        <p>Stop rock chips, scratches &amp; road debris before they reach your paint. Self-healing, ultra-clear PPF for maximum durability.</p>
-      </div>
-      <div class="soon-card">
-        <div class="soon-card-icon">🪟</div>
-        <div class="soon-badge"><span>Coming Soon</span></div>
-        <h3>Window Tinting</h3>
-        <p>Professional-grade window tint for UV protection, heat rejection &amp; privacy. Blocks up to 99% of UV rays.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SECOND PHOTO ROW -->
-<div class="mosaic mosaic-row">
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=85&fit=crop" alt="BMW M series detail"><div class="mosaic-label">BMW M Series</div></div>
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=85&fit=crop" alt="Car wash detail service"><div class="mosaic-label">Mobile Wash</div></div>
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&q=85&fit=crop" alt="Ferrari sports car"><div class="mosaic-label">Ferrari 488</div></div>
-  <div class="mosaic-item"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=85&fit=crop" alt="Supercar exterior detail"><div class="mosaic-label">Showroom Finish</div></div>
-</div>
-
-<!-- VIDEO SECTION -->
-<div class="video-section" id="video">
-  <div class="video-wrap">
-    <div class="video-left">
-      <div class="vid-kicker">5 Minute Video</div>
-      <h2>AUTO DETAILING<br><span>EXPLAINED</span></h2>
-      <p>Find out exactly how professional mobile detailing works — what products we use, how long it takes, and what transforms your car from daily-driver dirty to showroom clean.</p>
-      <button class="vid-watch-btn" onclick="loadVid()">
-        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        Watch Now
-      </button>
-    </div>
-    <div class="video-right" id="vid-box">
-      <img src="https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?w=900&q=80&fit=crop" alt="Auto detailing video thumbnail">
-      <div class="play-overlay" onclick="loadVid()">
-        <div class="play-circle"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <div class="play-txt">Watch How We Work</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TRUST BADGES -->
-<div class="trust-row">
-  <div class="trust-inner">
-    <div class="trust-item"><div class="trust-icon">📍</div><div class="trust-label">We Come To You</div><div class="trust-sub">Home, Office, Anywhere</div></div>
-    <div class="trust-item"><div class="trust-icon">🛡️</div><div class="trust-label">Fully Insured LLC</div><div class="trust-sub">Licensed &amp; Covered</div></div>
-    <div class="trust-item"><div class="trust-icon">⭐</div><div class="trust-label">5-Star Rated</div><div class="trust-sub">Verified Client Reviews</div></div>
-    <div class="trust-item"><div class="trust-icon">🗓️</div><div class="trust-label">7 Days a Week</div><div class="trust-sub">Including Holidays</div></div>
-    <div class="trust-item"><div class="trust-icon">💧</div><div class="trust-label">Pro-Grade Products</div><div class="trust-sub">Same as Body Shops</div></div>
-  </div>
-</div>
-
-<!-- AREAS -->
-<section class="areas-section" id="areas">
-  <div class="areas-wrap">
-    <div class="areas-left">
-      <div class="label">Service Coverage</div>
-      <h2>We Come To<br><span class="hl">Your Location</span></h2>
-      <p>Based in McKinney, TX — we travel throughout the entire DFW Metroplex to bring premium mobile detailing directly to you, wherever you are.</p>
-      <div class="city-pills">
-        <span class="city-pill">McKinney</span><span class="city-pill">Frisco</span><span class="city-pill">Plano</span>
-        <span class="city-pill">Allen</span><span class="city-pill">Richardson</span><span class="city-pill">Lewisville</span>
-        <span class="city-pill">Princeton</span><span class="city-pill">Prosper</span><span class="city-pill">Celina</span>
-        <span class="city-pill">Murphy</span><span class="city-pill">Wylie</span><span class="city-pill">Garland</span>
-      </div>
-    </div>
-    <div class="area-card">
-      <div class="area-ping"></div>
-      <h3>DFW METROPLEX</h3>
-      <div class="area-note">Full Coverage · All Cities</div>
-      <p>We serve the entire Dallas-Fort Worth area. If you're within 40 miles of McKinney, we come to you — no exceptions.</p>
-      <button class="btn-fill" onclick="go('contact')">Check Your Area</button>
-    </div>
-  </div>
-</section>
-
-<!-- CONTENT SECTION -->
-<section class="content-section" id="about">
-  <div class="content-inner">
-    <div class="content-2col">
+<!-- REQUIREMENTS -->
+<section class="sec req" id="requirements">
+  <div class="wrap">
+    <div class="req-head">
       <div>
-        <div class="label">About Luxom</div>
-        <h2>Why <span style="color:var(--sage2)">Mobile Detailing</span> Beats the Car Wash</h2>
-        <p>A traditional car wash is designed for speed and volume — not quality. Automated machines use the same brushes on hundreds of cars and can't reach corners, door jambs, or interior crevices. Our mobile detailers spend dedicated time on your specific vehicle, using professional-grade tools that car washes simply don't carry.</p>
-        <h2>The Luxom <span style="color:var(--sage2)">Difference</span></h2>
-        <p>We started Luxom because we couldn't find a detailer that truly respected your time and your vehicle. We come to you, work around your schedule, and treat every car with the same care we'd want for our own.</p>
-        <div class="highlight-box"><p><strong>Our promise:</strong> Every detail is performed by a trained professional with premium products — or we come back and make it right, no questions asked.</p></div>
+        <div class="label">Before We Arrive</div>
+        <h2 class="title">Service<br><span class="hl">Requirements</span></h2>
       </div>
-      <div>
-        <div class="side-img"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85&fit=crop" alt="Professional detailing process"></div>
-        <div class="side-img-2"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85&fit=crop" alt="Interior detail clean"></div>
-      </div>
+      <p class="req-head-note">Please review before booking so your appointment goes smoothly and we can deliver the best possible result for your vehicle.</p>
     </div>
-  </div>
-</section>
 
-<!-- CONTACT FORM -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="contact-left">
-      <div class="label">Free Quote</div>
-      <h2>Get Your <span class="hl">Personalized</span> Quote</h2>
-      <p>Fill out the form and we'll get back to you within 24 hours with a custom quote for your vehicle and location. No commitment required.</p>
-      <div class="contact-info-block">
-        <div class="cib"><div class="cib-icon">📍</div><div class="cib-text"><strong>Location</strong><span>McKinney, TX — Mobile Throughout DFW</span></div></div>
-        <div class="cib"><div class="cib-icon">🕐</div><div class="cib-text"><strong>Hours</strong><span>Monday–Sunday, 7 AM–8 PM</span></div></div>
-        <div class="cib"><div class="cib-icon">📞</div><div class="cib-text"><strong>Phone</strong><span>(placeholder)</span></div></div>
-        <div class="cib"><div class="cib-icon">✉️</div><div class="cib-text"><strong>Email</strong><span>(placeholder)</span></div></div>
+    <div class="req-grid">
+      <div class="rcard">
+        <div class="ricon">🚗</div>
+        <h3>Vehicle Access</h3>
+        <ul class="rlist">
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Vehicle accessible &amp; unlocked at appointment time</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Keys available for interior services</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Windows fully closed before arrival</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Personal items &amp; valuables removed</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Car seats removed by owner prior to interior detail</li>
+        </ul>
       </div>
-    </div>
-    <div class="form-card">
-      <div class="form-2col">
-        <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
-        <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
-      </div>
-      <div class="fg"><label>Email Address</label><input type="email" placeholder="john@email.com"></div>
-      <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(214) 555-0100"></div>
-      <div class="fg"><label>City / Location</label><input type="text" placeholder="McKinney, Frisco, Plano..."></div>
-      <div class="fg">
-        <label>Service Interested In</label>
-        <select>
-          <option>Exterior Wash &amp; Detail</option>
-          <option>Interior Detail</option>
-          <option>Full Detail (Interior + Exterior)</option>
-          <option>Engine Bay Cleaning</option>
-          <option>Full Detail + Engine Bay Add-on</option>
-          <option>─── Coming Soon ───</option>
-          <option>Ceramic Coating (Notify me when available)</option>
-          <option>Paint Protection Film (Notify me when available)</option>
-          <option>Window Tinting (Notify me when available)</option>
-        </select>
-      </div>
-      <div class="fg"><label>Vehicle (Year, Make, Model)</label><input type="text" placeholder="2023 Porsche 911, 2022 RAM 1500..."></div>
-      <div class="fg"><label>Preferred Date &amp; Time</label><input type="text" placeholder="Saturday morning, weekdays after 3pm..."></div>
-      <div class="fg"><label>Message / Notes</label><textarea placeholder="Pet hair, stains, no water access, specific concerns..."></textarea></div>
-      <button class="form-submit" onclick="document.getElementById('modal-bg').classList.add('on')">Send Message →</button>
-    </div>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="faq-inner">
-    <div class="label">Got Questions</div>
-    <h2 class="sec-title">Frequently Asked<br><span class="hl">Questions</span></h2>
-    <div class="faq-2col">
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">What is auto detailing — how is it different from a car wash?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>A car wash is a quick surface rinse. Professional auto detailing is a thorough, meticulous cleaning of every surface — interior and exterior — using specialized tools and professional-grade products. The results are dramatically deeper, longer-lasting, and include protection applied to paint, glass, leather, and plastic.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">How do I book a service with Luxom?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>The easiest way is to fill out our free quote form above — we'll respond within 24 hours with a personalized quote and available time slots. You can also call or text us directly. We're available 7 days a week.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">Can you detail my car at my home or office?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>Absolutely — that's exactly what we do. We are 100% mobile and bring all equipment, products, and supplies to you. We carry 100-foot hoses and 200-foot extension cords, making it easy to access water and electricity at most locations.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">What if I don't have access to water or electricity?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>Reach out and describe your situation — we'll work with you to find the best solution. In most apartment or office locations we can access nearby water and power. Contact us directly and we'll figure out the best approach for your specific location.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">How long does a typical detail take?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>An exterior detail typically takes 2–4 hours. An interior detail takes 2–5 hours. A full detail can take 4–8 hours depending on the package and your vehicle's size and condition. We'll give you a specific time estimate when you book.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">How long will the results of a detail last?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>We apply generous amounts of paint sealant, glass protectant, and plastic/rubber dressing throughout every service. Most clients see excellent results lasting 4–8 weeks depending on driving conditions, weather, and maintenance between services.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">What are the "Coming Soon" services?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>Ceramic coating, paint protection film (PPF), and window tinting are all currently in development and launching soon in the DFW Metroplex. Select any of them in the contact form to be notified the moment they go live.</p></div></div>
-      <div class="faq-card"><button class="faq-btn" onclick="faq(this)"><span class="faq-q-text">Do you detail luxury or exotic vehicles?</span><span class="faq-icon">+</span></button><div class="faq-ans"><p>Yes, absolutely. We regularly detail high-end vehicles including Porsche, BMW, Lamborghini, Ferrari, Mercedes, Range Rover, and more. We use paint-safe, professional-grade products and techniques designed for premium clear coats and exotic finishes.</p></div></div>
+      <div class="rcard">
+        <div class="ricon">📍</div>
+        <h3>Location &amp; Space</h3>
+        <ul class="rlist">
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Flat paved surface — driveway, lot, or apron</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Outdoor water spigot access for exterior washes</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>10–12 ft clear space around vehicle</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Shade preferred but not required</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Notify us of gate codes before arrival</li>
+        </ul>
+      </div>
+
+      <div class="rcard">
+        <div class="ricon">📅</div>
+        <h3>Scheduling</h3>
+        <ul class="rlist">
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Confirm appointments 24 hours in advance</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cancellations require 12 hours notice</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Weather reschedules offered at no charge</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>15-minute grace period on arrival</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Same-day bookings subject to availability</li>
+        </ul>
+      </div>
+
+      <div class="rcard">
+        <div class="ricon">🔍</div>
+        <h3>Vehicle Condition</h3>
+        <ul class="rlist">
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Heavy soiling may incur additional fee — notified first</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Pre-existing damage noted before we begin</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>No mold, biohazard, or sewage situations</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Pet hair removal available — request at booking</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Engine must be cool before bay cleaning</li>
+        </ul>
+      </div>
+
+      <div class="rcard">
+        <div class="ricon">💳</div>
+        <h3>Payment</h3>
+        <ul class="rlist">
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Payment due upon service completion</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cash, Zelle, Venmo, CashApp &amp; major cards accepted</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Invoice provided after every service</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Bundle pricing available — ask during quote</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Gratuity not required but appreciated</li>
+        </ul>
+      </div>
+
+      <div class="rcard">
+        <div class="ricon">🛡️</div>
+        <h3>Health &amp; Safety</h3>
+        <ul class="rlist">
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Professional-grade, vehicle-safe products used</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Keep children &amp; pets away during service</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Fully insured — concerns addressed professionally</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>All technicians follow local safety guidelines</li>
+          <li><span class="rchk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Disclose product allergies at time of booking</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="req-banner">
+      <div class="rbicon">💬</div>
+      <div class="rbtext">
+        <h4>Have Questions About Requirements?</h4>
+        <p>We're happy to walk you through everything before your appointment — no question is too small.</p>
+      </div>
+      <button class="rbbtn" onclick="go('contact')">Get In Touch →</button>
     </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section" id="reviews">
-  <div class="reviews-inner">
+<section class="sec reviews" id="reviews">
+  <div class="wrap">
     <div class="label">Client Feedback</div>
-    <h2 class="sec-title">What Our<br><span class="hl">Clients Say</span></h2>
-    <div class="reviews-grid">
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Luxom did an incredible job on my truck. Came right to my driveway — I didn't move from my couch. Exterior looks better than the day I bought it and the interior smells brand new. Will 100% book again."</div><div class="rev-author"><div class="rev-av">MR</div><div><div class="rev-name">Marcus R.</div><div class="rev-city">McKinney, TX</div></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"They came to my office parking lot while I worked. My car looks absolutely brand new — water literally beads right off the paint. The attention to detail is unreal. I won't go anywhere else."</div><div class="rev-author"><div class="rev-av">SL</div><div><div class="rev-name">Sara L.</div><div class="rev-city">Frisco, TX</div></div></div></div>
-      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Got stains out of my seats I genuinely thought were permanent after 3 years. Professional, punctual, and the results speak for themselves. Best mobile detailing in the entire DFW area — period."</div><div class="rev-author"><div class="rev-av">DJ</div><div><div class="rev-name">David J.</div><div class="rev-city">Plano, TX</div></div></div></div>
+    <h2 class="title">What Our<br><span class="hl">Clients Say</span></h2>
+    <div class="rev-grid">
+      <div class="rrev"><div class="rstars">★★★★★</div><div class="rtext">"Luxom did an incredible job on my truck. Came right to my driveway — I didn't move from my couch. Exterior looks better than the day I bought it. Will 100% book again."</div><div class="rauthor"><div class="rav">MR</div><div><div class="rname">Marcus R.</div><div class="rcity">McKinney, TX</div></div></div></div>
+      <div class="rrev"><div class="rstars">★★★★★</div><div class="rtext">"They came to my office parking lot while I worked. My car looks absolutely brand new — water literally beads right off the paint. I won't go anywhere else."</div><div class="rauthor"><div class="rav">SL</div><div><div class="rname">Sara L.</div><div class="rcity">Frisco, TX</div></div></div></div>
+      <div class="rrev"><div class="rstars">★★★★★</div><div class="rtext">"Got stains out of my seats I thought were permanent after 3 years. Professional, punctual, results speak for themselves. Best mobile detailing in DFW — period."</div><div class="rauthor"><div class="rav">DJ</div><div><div class="rname">David J.</div><div class="rcity">Plano, TX</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- OTHER SERVICES -->
-<section class="other-section">
-  <div class="other-inner">
-    <div class="label" style="color:rgba(255,255,255,.3)">Complete Care Menu</div>
-    <h2 class="sec-title" style="color:#fff">Our Full <span class="gold">Service Menu</span></h2>
-    <div class="other-grid">
-      <div class="other-card"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=500&q=80&fit=crop" alt="Exterior wash detail"><div class="other-avail-badge">Available Now</div><div class="other-card-overlay"><div class="other-card-name">Exterior Detail</div><div class="other-card-note">Mobile · DFW Metroplex</div></div></div>
-      <div class="other-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80&fit=crop" alt="Interior car detail"><div class="other-avail-badge">Available Now</div><div class="other-card-overlay"><div class="other-card-name">Interior Detail</div><div class="other-card-note">Mobile · DFW Metroplex</div></div></div>
-      <div class="other-card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80&fit=crop" alt="Ceramic coating protection"><div class="other-soon-badge">Coming Soon</div><div class="other-card-overlay"><div class="other-card-name">Ceramic Coating</div><div class="other-card-note">Launching in DFW</div></div></div>
-      <div class="other-card"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&q=80&fit=crop" alt="Paint protection film PPF"><div class="other-soon-badge">Coming Soon</div><div class="other-card-overlay"><div class="other-card-name">Paint Protection</div><div class="other-card-note">Launching in DFW</div></div></div>
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="label">Free Quote</div>
+        <h2 class="title">Get Your<br><span class="hl">Personalized Quote</span></h2>
+        <p>Fill out the form and we'll get back to you within 24 hours with a custom quote. No commitment required.</p>
+        <div class="cinfo">
+          <div class="cib"><div class="cib-ic">📍</div><div class="cib-tx"><strong>Location</strong><span>McKinney, TX — Mobile Throughout DFW</span></div></div>
+          <div class="cib"><div class="cib-ic">🕐</div><div class="cib-tx"><strong>Hours</strong><span>Mon–Sun, 7 AM–8 PM</span></div></div>
+          <div class="cib"><div class="cib-ic">📞</div><div class="cib-tx"><strong>Phone</strong><span>(placeholder)</span></div></div>
+          <div class="cib"><div class="cib-ic">✉️</div><div class="cib-tx"><strong>Email</strong><span>(placeholder)</span></div></div>
+        </div>
+      </div>
+      <form class="form-card" id="quoteForm" action="https://formspree.io/f/mvzlpqee" method="POST">
+        <div class="f2">
+          <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="John" required></div>
+          <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="john@email.com" required></div>
+        <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="(214) 555-0100" required></div>
+        <div class="fg"><label>City / Location</label><input type="text" name="city" placeholder="McKinney, Frisco, Plano..."></div>
+        <div class="fg">
+          <label>Service</label>
+          <select name="service">
+            <option>Exterior Wash &amp; Detail</option>
+            <option>Interior Detail</option>
+            <option>Full Detail (Interior + Exterior)</option>
+            <option>Engine Bay Cleaning</option>
+            <option>Full Detail + Engine Bay Add-on</option>
+          </select>
+        </div>
+        <div class="fg"><label>Vehicle (Year, Make, Model)</label><input type="text" name="vehicle" placeholder="2023 Porsche 911, 2022 RAM 1500..."></div>
+        <div class="fg"><label>Preferred Date &amp; Time</label><input type="text" name="preferred_time" placeholder="Saturday morning, weekdays after 3pm..."></div>
+        <div class="fg"><label>Notes</label><textarea name="notes" placeholder="Pet hair, stains, specific concerns..."></textarea></div>
+        <button type="submit" class="fsub" id="submitBtn">Send Message →</button>
+      </form>
     </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     REQUIREMENTS SECTION
-════════════════════════════════════ -->
-<section class="req-section" id="requirements">
-  <div class="req-inner">
-
-    <div class="req-intro">
-      <div>
-        <div class="label">Before We Arrive</div>
-        <h2 class="sec-title">Service<br><span class="hl">Requirements</span></h2>
-      </div>
-      <div class="req-intro-right">
-        <p>To ensure we deliver the best possible result — and that your appointment goes smoothly — please review the following requirements before booking. These help us protect your vehicle and keep our process efficient for everyone.</p>
-      </div>
-    </div>
-
-    <div class="req-grid">
-
-      <div class="req-card">
-        <div class="req-card-icon">🚗</div>
-        <h3>Vehicle Access</h3>
-        <ul class="req-list">
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Vehicle must be accessible and unlocked at the scheduled time</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Keys available for interior services requiring door/trunk access</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Windows should be fully closed prior to our arrival</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Remove personal belongings and loose items from interior</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Car seats must be removed by owner before interior detailing</li>
-        </ul>
-      </div>
-
-      <div class="req-card">
-        <div class="req-card-icon">📍</div>
-        <h3>Location &amp; Space</h3>
-        <ul class="req-list">
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Flat, paved surface required (driveway, parking lot, or apron)</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Access to a standard outdoor water spigot for exterior washes</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>At least 10–12 feet of clear space around the vehicle</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Covered or shaded areas preferred but not required</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Notify us of gate codes or entry restrictions before arrival</li>
-        </ul>
-      </div>
-
-      <div class="req-card">
-        <div class="req-card-icon">📅</div>
-        <h3>Scheduling &amp; Cancellation</h3>
-        <ul class="req-list">
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Appointments confirmed at least 24 hours in advance</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cancellations require minimum 12 hours notice</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Extreme weather reschedules are offered at no charge</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>15-minute grace period; late arrivals may require rescheduling</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Same-day bookings subject to availability — contact us directly</li>
-        </ul>
-      </div>
-
-      <div class="req-card">
-        <div class="req-card-icon">🔍</div>
-        <h3>Vehicle Condition</h3>
-        <ul class="req-list">
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Heavily soiled vehicles may require an additional fee — we notify you first</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Pre-existing paint damage is noted before service begins</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>We do not detail vehicles with mold, biohazard, or sewage issues</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Pet hair removal available for additional charge — request at booking</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Engine bay cleaning requires engine to be cool before service</li>
-        </ul>
-      </div>
-
-      <div class="req-card">
-        <div class="req-card-icon">💳</div>
-        <h3>Payment</h3>
-        <ul class="req-list">
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Payment is due upon service completion</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>We accept cash, Zelle, Venmo, CashApp &amp; major cards</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Final invoice provided after every service</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Custom packages and bundle pricing available — ask during your quote</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Gratuity is not required but always appreciated</li>
-        </ul>
-      </div>
-
-      <div class="req-card">
-        <div class="req-card-icon">🛡️</div>
-        <h3>Health &amp; Safety</h3>
-        <ul class="req-list">
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>We use professional-grade, vehicle-safe products on all surfaces</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Keep children and pets away from work area during service</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>We are fully insured — any concerns addressed professionally</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>All technicians follow local regulations and safety guidelines</li>
-          <li><span class="req-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Disclose any product sensitivities or allergies at booking</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Banner -->
-    <div class="req-banner">
-      <div class="req-banner-icon">💬</div>
-      <div class="req-banner-text">
-        <h4>Have Questions About Requirements?</h4>
-        <p>We're happy to walk you through everything before your appointment. No question is too small — reach out and we'll make sure you're fully prepared.</p>
-      </div>
-      <button class="req-banner-cta" onclick="go('contact')">Get In Touch →</button>
-    </div>
-
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="f-logo-name">LUXOM</div>
-        <div class="f-logo-sub">Auto Detailing LLC · McKinney, TX</div>
-        <p>Premium mobile auto detailing serving McKinney and the DFW Metroplex. We bring the detail shop to your door — 7 days a week, all year long.</p>
+    <div class="ftop">
+      <div class="fbrand">
+        <div class="fname">LUXOM</div>
+        <div class="fsub">Auto Detailing LLC · McKinney, TX</div>
+        <p>Premium mobile auto detailing serving McKinney and all of DFW. We bring the detail shop to your door — 7 days a week.</p>
       </div>
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Services</h4>
-        <a href="#services">Exterior Wash &amp; Detail</a>
+        <a href="#services">Exterior Detail</a>
         <a href="#services">Interior Detail</a>
         <a href="#services">Full Detail Package</a>
         <a href="#services">Engine Bay Cleaning</a>
-        <a href="#coming-soon" style="color:rgba(201,150,58,.4)">Ceramic Coating (Soon)</a>
-        <a href="#coming-soon" style="color:rgba(201,150,58,.4)">Paint Protection (Soon)</a>
-        <a href="#coming-soon" style="color:rgba(201,150,58,.4)">Window Tinting (Soon)</a>
       </div>
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Navigate</h4>
         <a href="#home">Home</a>
-        <a href="#video">How It Works</a>
-        <a href="#about">About Luxom</a>
-        <a href="#areas">Service Area</a>
+        <a href="#services">Services</a>
         <a href="#requirements">Requirements</a>
-        <a href="#faq">FAQ</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Get Free Quote</a>
       </div>
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Contact</h4>
         <p>Phone: <span>(placeholder)</span></p>
         <p>Email: <span>(placeholder)</span></p>
         <p>Based: <span>McKinney, TX</span></p>
         <p>Hours: <span>Mon–Sun, 7 AM–8 PM</span></p>
-        <p>Booking: <span>By appointment</span></p>
-        <p style="margin-top:10px;font-size:10px;color:rgba(255,255,255,.15)">Serving McKinney, Frisco, Plano, Allen, Richardson, Lewisville, Princeton, Prosper &amp; surrounding DFW cities</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 <strong>Luxom Auto Detailing LLC</strong>. All rights reserved. McKinney, TX.</p>
-      <p class="footer-cities">McKinney · Frisco · Plano · Allen · Richardson · Lewisville · Princeton · Prosper · Celina</p>
+    <div class="fbot">
+      <p>© 2025 <strong>Luxom Auto Detailing LLC</strong>. All rights reserved.</p>
+      <p class="fcities">McKinney · Frisco · Plano · Allen · Richardson · Lewisville · Prosper</p>
     </div>
   </div>
 </footer>
 
-<!-- SUCCESS MODAL -->
+<!-- MODAL -->
 <div id="modal-bg" onclick="if(event.target===this)this.classList.remove('on')">
   <div id="modal-box">
     <div class="m-icon">✅</div>
     <h3>Quote Request Sent!</h3>
-    <p>Thank you for reaching out to Luxom Auto Detailing. We'll review your request and contact you within 24 hours with a personalized quote for your vehicle.</p>
+    <p>Thank you! We'll review your request and get back to you within 24 hours with a personalized quote.</p>
     <button id="modal-close" onclick="document.getElementById('modal-bg').classList.remove('on')">Perfect, Thanks!</button>
   </div>
 </div>
 
 <script>
-/* ─ CURSOR (desktop only) ─ */
-if(window.innerWidth > 960){
+/* Cursor */
+if(window.innerWidth>960){
   const dot=document.getElementById('dot'),ring=document.getElementById('ring');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-  document.querySelectorAll('button,a,.pkg-card,.rev-card,.faq-btn,.city-pill,.soon-card,.req-card').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{dot.style.width='16px';dot.style.height='16px';ring.style.width='46px';ring.style.height='46px'});
-    el.addEventListener('mouseleave',()=>{dot.style.width='8px';dot.style.height='8px';ring.style.width='32px';ring.style.height='32px'});
+  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('button,a,.pkg,.rrev,.rcard').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.style.width='14px';dot.style.height='14px';ring.style.width='44px';ring.style.height='44px'});
+    el.addEventListener('mouseleave',()=>{dot.style.width='8px';dot.style.height='8px';ring.style.width='30px';ring.style.height='30px'});
   });
 }
 
-/* ─ HELPERS ─ */
+/* Helpers */
 function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
 
-/* ─ MOBILE MENU ─ */
-function toggleMobile(){
-  const m=document.getElementById('mobileMenu');
-  m.classList.toggle('open');
-  document.getElementById('ham').style.opacity=m.classList.contains('open')?'0':'1';
-}
-function closeMobile(){
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.getElementById('ham').style.opacity='1';
-}
+/* Mobile menu */
+function tm(){document.getElementById('mobMenu').classList.toggle('open')}
+function cm(){document.getElementById('mobMenu').classList.remove('open')}
 
-/* ─ NAV SCROLL ─ */
+/* Nav shadow */
 window.addEventListener('scroll',()=>{
-  document.getElementById('hdr').style.boxShadow=window.scrollY>40?'0 4px 24px rgba(0,0,0,.08)':'none';
+  document.getElementById('hdr').style.boxShadow=window.scrollY>30?'0 4px 20px rgba(0,0,0,.07)':'none';
 },{passive:true});
 
-/* ─ FAQ ACCORDION ─ */
-function faq(btn){
-  const a=btn.nextElementSibling,open=a.classList.contains('open');
-  document.querySelectorAll('.faq-ans.open').forEach(x=>x.classList.remove('open'));
-  document.querySelectorAll('.faq-btn.open').forEach(x=>x.classList.remove('open'));
-  if(!open){a.classList.add('open');btn.classList.add('open');}
-}
+/* Formspree form submission */
+const form = document.getElementById('quoteForm');
+const btn = document.getElementById('submitBtn');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      document.getElementById('modal-bg').classList.add('on');
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    } else {
+      btn.textContent = 'Error — Try Again';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.background = '#c0392b';
+    }
+  } catch(err) {
+    btn.textContent = 'Error — Try Again';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.background = '#c0392b';
+  }
+});
 
-/* ─ VIDEO ─ */
-function loadVid(){
-  document.getElementById('vid-box').innerHTML='<iframe src="https://www.youtube.com/embed/jF6g8VHBYuU?autoplay=1&rel=0&modestbranding=1" allow="autoplay;fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none"></iframe>';
-}
-
-/* ─ SCROLL REVEAL ─ */
+/* Scroll reveal */
 const obs=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
-},{threshold:.06});
-document.querySelectorAll('.pkg-card,.rev-card,.faq-card,.soon-card,.other-card,.cib,.trust-item,.req-card').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(22px)';
-  el.style.transition='opacity .55s ease, transform .55s ease';
+},{threshold:.07});
+document.querySelectorAll('.pkg,.rrev,.rcard,.cib').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';
+  el.style.transition='opacity .5s ease, transform .5s ease';
   obs.observe(el);
 });
 </script>
